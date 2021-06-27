@@ -21,7 +21,7 @@ namespace Fav_Food.Controllers
             return View();
         }
 
-        public IActionResult Create([Bind("Id", "Name", "Rating")]FoodModel food)
+        public IActionResult Create([Bind("Id", "name", "Rating")]FoodModel food)
         {
             if (ModelState.IsValid)
             {
