@@ -1,5 +1,5 @@
 @model FoodModel
-<form asp-action="Create" method="post">
+<form asp-controller="food" asp-action="create" method="post">
     <div class="form-group">
         <label asp-for="Id">Food Id</label>
         <input type="number" asp-for="Id" class="form-control" placeholder="Enter Id">

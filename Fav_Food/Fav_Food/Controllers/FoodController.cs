@@ -21,22 +21,34 @@ namespace Fav_Food.Controllers
             return View();
         }
 
-        public IActionResult Create([Bind("Id", "name", "Rating")]FoodModel food)
+        [HttpPost]
+        public IActionResult Create([Bind("Id", "Name", "Rating")]FoodModel food)
         {
             if (ModelState.IsValid)
             {
                 _foodFavorites.Add(new FoodModel() {Id = food.Id, Name = food.Name, Rating = food.Rating});
-                return RedirectToAction("Index");
+                ViewBag.FoodList = _foodFavorites;
+                return View("Index");
             }
             
             return View(food);
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
-        
-        
+
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var selctedFood=_foodFavorites.FirstOrDefault(food => food.Id == id);
+            _foodFavorites.Remove(selctedFood);
+            ViewBag.FoodList = _foodFavorites;
+            return View("Index");
+        }
+
+
     }
 }
