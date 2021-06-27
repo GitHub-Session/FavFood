@@ -47,6 +47,7 @@ namespace Fav_Food.Controllers
             _foodFavorites.Remove(selctedFood);
             ViewBag.FoodList = _foodFavorites;
             return View("Index");
+
         }
 
 
