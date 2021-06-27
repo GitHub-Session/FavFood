@@ -17,6 +17,7 @@ namespace Fav_Food.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.FoodList = _foodFavorites;
             return View();
         }
 

@@ -1,4 +1,23 @@
-﻿@page
-@model Fav_Food.Views.Food.IndexModel
-@{
+﻿@{
+    var foodList = (List<FoodModel>)ViewBag.FoodList;
 }
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Rating</th>
+    </tr>
+    </thead>
+    <tbody>
+@foreach (var food in foodList)
+{
+    <tr>
+        <th scope="row">@food.Id</th>
+        <td>@food.Name</td>
+        <td>@food.Rating</td>
+    </tr>
+}
+    
+    </tbody>
+</table>
